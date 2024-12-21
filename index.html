@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>交通信息系统</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+    <div id="map" style="width: 100%; height: 500px;"></div>
+    <script>
+        const map = L.map('map').setView([31.3, 120.6], 13);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+        // 添加道路
+        const road = L.polyline([[31.2, 120.5], [31.3, 120.6]], {color: 'blue'}).addTo(map);
+        road.bindPopup("Highway A1");
+
+        // 添加交通灯
+        const trafficLight = L.marker([31.25, 120.55]).addTo(map);
+        trafficLight.bindPopup("Traffic Light: Green");
+    </script>
+</body>
+</html>
